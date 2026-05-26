@@ -1,4 +1,4 @@
-package com.anderson.filmes.exeption;
+package com.anderson.filmes.exception;
 
 // RuntimeException = não precisa ser declarada no throws
 public class RecursoNaoEncontradoException extends RuntimeException {
