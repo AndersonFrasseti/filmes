@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Meu Carrinho')}"></head>
+<body>
+<nav th:replace="~{layout :: navbar}"></nav>
+<div class="container mt-4">
+    <h2>🛒 Meu Carrinho</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Imagem</th>
+            <th>Título</th>
+            <th>Diretor</th>
+            <th>Ano</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${carrinho}">
+            <td><img th:src="@{${item.imageUrl}}"
+                     style="width:60px;height:80px;object-fit:cover"></td>
+            <td th:text="${item.titulo}"></td>
+            <td th:text="${item.diretor}"></td>
+            <td th:text="${item.anoLancamento}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex gap-2 mt-3">
+        <a th:href="@{/index}" class="btn btn-secondary">← Continuar</a>
+        <!-- link finalizarCompra — questão 12 exige -->
+        <a th:href="@{/finalizarCompra}" class="btn btn-success">
+            ✅ Finalizar
+        </a>
+    </div>
+</div>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>
