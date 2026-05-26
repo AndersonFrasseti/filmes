@@ -1,8 +1,8 @@
 package com.anderson.filmes.controller;
 
-import br.com.seunome.filmes.dto.FilmForm;
-import br.com.seunome.filmes.model.Film;
-import br.com.seunome.filmes.service.FilmService;
+import com.anderson.filmes.model.Film;
+import com.anderson.filmes.service.FilmService;
+import com.anderson.filmes.dto.FilmForm;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

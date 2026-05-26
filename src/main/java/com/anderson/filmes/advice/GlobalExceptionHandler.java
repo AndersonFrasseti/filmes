@@ -1,7 +1,6 @@
 package com.anderson.filmes.advice;
 
-import br.com.seunome.filmes.exception.RecursoNaoEncontradoException;
-import org.springframework.ui.Model;
+import com.anderson.filmes.exception.RecursoNaoEncontradoException;import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 

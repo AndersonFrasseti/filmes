@@ -1,6 +1,6 @@
 package com.anderson.filmes.repository;
 
-import br.com.seunome.filmes.model.Film;
+import com.anderson.filmes.model.Film;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
