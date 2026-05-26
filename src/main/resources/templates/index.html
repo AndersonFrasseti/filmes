@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Catálogo de Filmes')}"></head>
+<body>
+<nav th:replace="~{layout :: navbar}"></nav>
+<div th:replace="~{layout :: mensagens}"></div>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>🎬 Catálogo de Filmes</h2>
+        <!-- Link carrinho com quantidade — questão 4 -->
+        <a th:href="@{/verCarrinho}" class="btn btn-warning">
+            🛒 Carrinho
+            <span class="badge bg-dark" th:text="'(' + ${qtdCarrinho} + ')'"></span>
+        </a>
+    </div>
+
+    <div class="row">
+        <!-- th:each itera sobre a lista "filmes" -->
+        <div class="col-md-3 mb-4" th:each="filme : ${filmes}">
+            <div class="card h-100">
+                <img th:src="@{${filme.imageUrl}}"
+                     class="card-img-top" style="height:200px;object-fit:cover">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${filme.titulo}"></h5>
+                    <p class="card-text text-muted" th:text="${filme.diretor}"></p>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/detalhe/{id}(id=${filme.id})}"
+                       class="btn btn-sm btn-info">Detalhes</a>
+                    <a th:href="@{/adicionarCarrinho(id=${filme.id})}"
+                       class="btn btn-sm btn-success">+ Carrinho</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="~{layout :: footer}"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

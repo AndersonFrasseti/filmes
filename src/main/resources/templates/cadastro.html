@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Cadastrar Filme')}"></head>
+<body>
+<nav th:replace="~{layout :: navbar}"></nav>
+<div class="container mt-4">
+    <h2>Cadastrar Filme</h2>
+
+    <!-- th:object = liga o formulário ao FilmForm -->
+    <!-- th:action = URL de destino do POST -->
+    <form th:action="@{/salvar}" th:object="${filmForm}" method="post">
+        <!-- campo hidden para edição -->
+        <input type="hidden" th:field="*{id}">
+
+        <div class="mb-3">
+            <label>Título</label>
+            <!-- th:field liga ao atributo do FilmForm -->
+            <input type="text" th:field="*{titulo}" class="form-control">
+            <!-- exibe erro de validação se houver -->
+            <span class="text-danger" th:errors="*{titulo}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Diretor</label>
+            <input type="text" th:field="*{diretor}" class="form-control">
+            <span class="text-danger" th:errors="*{diretor}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Gênero</label>
+            <input type="text" th:field="*{genero}" class="form-control">
+            <span class="text-danger" th:errors="*{genero}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Ano de Lançamento</label>
+            <input type="number" th:field="*{anoLancamento}" class="form-control">
+            <span class="text-danger" th:errors="*{anoLancamento}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Duração (minutos)</label>
+            <input type="number" th:field="*{duracao}" class="form-control">
+            <span class="text-danger" th:errors="*{duracao}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Classificação (Livre/10/12/14/16/18)</label>
+            <input type="text" th:field="*{classificacaoIndicativa}"
+                   class="form-control">
+            <span class="text-danger" th:errors="*{classificacaoIndicativa}"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Sinopse</label>
+            <textarea th:field="*{sinopse}" class="form-control" rows="4"></textarea>
+            <span class="text-danger" th:errors="*{sinopse}"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a th:href="@{/admin}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+<footer th:replace="~{layout :: footer}"></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

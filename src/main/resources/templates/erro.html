@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Erro')}"></head>
+<body>
+<nav th:replace="~{layout :: navbar}"></nav>
+<div class="container mt-5 text-center">
+    <h1 class="text-danger">⚠️ Ops! Algo deu errado.</h1>
+    <p class="lead" th:text="${mensagemErro}"></p>
+    <a th:href="@{/index}" class="btn btn-primary mt-3">Voltar ao início</a>
+</div>
+<footer th:replace="~{layout :: footer}"></footer>
+</body>
+</html>
